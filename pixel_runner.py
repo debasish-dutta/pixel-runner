@@ -127,20 +127,6 @@ obstacle_group = pygame.sprite.Group()
 sky_surface = pygame.image.load('runner\\graphics/Sky.png').convert()
 ground_surface = pygame.image.load('runner\\graphics/ground.png').convert()
 
-
-obstacle_rect_list = []
-
-
-player_walk_1 = pygame.image.load('runner\\graphics/player/player_walk_1.png').convert_alpha()
-player_walk_2 = pygame.image.load('runner\\graphics/player/player_walk_2.png').convert_alpha()
-player_walk = [player_walk_1,player_walk_2]
-player_index = 0
-player_jump = pygame.image.load('runner\\graphics/player/jump.png').convert_alpha()
-
-player_surf = player_walk[player_index]
-player_rect = player_surf.get_rect(midbottom = (80,300))
-player_gravity = 0
-
 # Intro screen
 player_stand = pygame.image.load('runner\\graphics/player/player_stand.png').convert_alpha()
 player_stand = pygame.transform.rotozoom(player_stand,0,2)
@@ -152,7 +138,7 @@ game_name_rect = game_name.get_rect(center = (400,80))
 game_message = pixel_font.render('Press space to run',False,(111,196,169))
 game_message_rect = game_message.get_rect(center = (400,350))
 
-# Timer 
+# Timers
 obstacle_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(obstacle_timer,1500)
 
@@ -195,9 +181,6 @@ while True:
 	else:
 		screen.fill((94,129,162))
 		screen.blit(player_stand,player_stand_rect)
-		obstacle_rect_list.clear()
-		player_rect.midbottom = (80,300)
-		player_gravity = 0
 
 		score_message = pixel_font.render(f'Your score: {score}',False,(111,196,169))
 		score_message_rect = score_message.get_rect(center = (400,350))
