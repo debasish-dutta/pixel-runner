@@ -91,14 +91,12 @@ class Obstacle(pygame.sprite.Sprite):
 		if self.rect.x <= -100: 
 			self.kill()
 
-
 def display_score():
 	current_time = int(pygame.time.get_ticks() / 1000) - start_time
 	score_surf = pixel_font.render(f'Score: {current_time}',False,(64,64,64))
 	score_rect = score_surf.get_rect(center = (400,50))
 	screen.blit(score_surf,score_rect)
 	return current_time
-
 
 def collision_sprite():
 	if pygame.sprite.spritecollide(player.sprite,obstacle_group,False):
